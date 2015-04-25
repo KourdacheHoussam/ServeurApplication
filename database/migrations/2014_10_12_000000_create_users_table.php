@@ -11,6 +11,7 @@ class CreateUsersTable extends Migration {
 	 * @return void
 	 */
 	public function up(){
+		//Create table Users and his different attributes
 		Schema::create('Users', function(Blueprint $table){
 			//default :une cle primaire			
 			$table->increments('id');
