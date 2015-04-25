@@ -23,7 +23,7 @@ class CreateHobbiesTable extends Migration {
 			//the name of the hobby
 			$table->string('hobby_name', 30);
 			//the hobby description
-			$table->string('hobby_description',30);
+			$table->string('hobby_description',30)->nullable();
 			//list of all possible hobbies
 			$table->string('hobbies_list');
 			//a hobby belong to a specific user
