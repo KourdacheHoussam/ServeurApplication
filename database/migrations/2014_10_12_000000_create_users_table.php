@@ -28,7 +28,9 @@ class CreateUsersTable extends Migration {
 			$table->date('user_birthday');
 			//user email address
 			$table->string('user_email_address')->unique();
-			//user certified is an user with a ID CARD certified byUS
+			//Foreign Column table : @Address reference
+			$table->string('user_address')->unique();
+			//user certified is an user with a ID CARD certified byUS			
 			$table->boolean('user_certified');
 			//A user can have "student" as status
 			$table->string('user_social_status', 25);
