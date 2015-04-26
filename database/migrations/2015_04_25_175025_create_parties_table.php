@@ -42,9 +42,9 @@ class CreatePartiesTable extends Migration {
 			//The address of the party : other address specifications
 			$table->string('party_other_address_specs', 120)->default("NONE");
 			//Le nombre minimum de participants
-			$table->integer('party_mini_participants', false, false);
+			$table->integer('party_mini_participants', false, false)->unsigned();
 			//Le nombre maximal de participants
-			$table->integer('party_maximal_participants', false, false);
+			$table->integer('party_maximal_participants', false, false)->unsigned();
 			//Ce que doivent apporter les gens à la soirée
 			$table->string('party_gifts', 120);
 			// Date and time party start

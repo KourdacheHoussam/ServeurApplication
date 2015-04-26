@@ -24,15 +24,17 @@ class CreateHobbiesTable extends Migration {
 			$table->string('hobby_name', 30);
 			//the hobby description
 			$table->text('hobby_description')->nullable();
-			//list of all possible hobbies
-			$table->string('hobbies_list');
-			//a hobby belong to a specific user
-			$table->string('hobby_owner');
 			// pour creer un champ memorisant la date de creation 
 			// et de suppression
 			$table->timestamps();
+
+			//When User delete his account, all his Hobbies will be deleted
+			$table->foreign('user_id')
+				  ->references('id')
+				  ->on('users')
+				  ->onDelete('cascade');
 		});
-	}
+	}	
 
 	/**
 	 * Reverse the migrations.

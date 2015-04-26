@@ -14,6 +14,8 @@ class CreateAddressesTable extends Migration {
 		Schema::create('addresses', function(Blueprint $table){
 			//default :une cle primaire	
 			$table->increments('id');
+			//address belong to a user : there we add the foreign user_id Ref
+			$table->foreign('user_id_owner')->references('id')->on('users');
 			//The address of the party : nom de l'organisme
 			$table->string('organisation_address', 120)->default("NONE");
 			//The address of the party : Bloc 1, ETAGE 1 ..etc
