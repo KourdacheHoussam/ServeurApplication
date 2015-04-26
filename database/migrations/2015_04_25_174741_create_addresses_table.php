@@ -14,8 +14,10 @@ class CreateAddressesTable extends Migration {
 		Schema::create('addresses', function(Blueprint $table){
 			//default :une cle primaire	
 			$table->increments('id');
+			//The Addresse ID attribute in table "addresses"
+			$table->integer('user_id')->unsigned()->index();	
 			//address belong to a user : there we add the foreign user_id Ref
-			$table->foreign('user_id_owner')->references('id')->on('users');
+			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');  
 			//The address of the party : nom de l'organisme
 			$table->string('organisation_address', 120)->default("NONE");
 			//The address of the party : Bloc 1, ETAGE 1 ..etc
@@ -42,7 +44,7 @@ class CreateAddressesTable extends Migration {
 	 * @return void
 	 */
 	public function down(){
-		Schema::drop('addresses');
+		Schema::dropIfExists('addresses');
 	}
 
 }

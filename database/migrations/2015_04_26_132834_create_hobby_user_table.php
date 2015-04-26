@@ -16,8 +16,7 @@ class CreateHobbyUserTable extends Migration {
 	 *
 	 * @return void
 	 */
-	public function up(){
-		
+	public function up(){		
 		/*
 		 * Creation Schema de la table de liaison (Many-To-Many)
 		 * entre la tables Users et la table Hobbies.
@@ -48,7 +47,7 @@ class CreateHobbyUserTable extends Migration {
 	 * @return void
 	 */
 	public function down(){
-		Schema::drop('hobbies');
+		Schema::dropIfExists('hobby_user');
 	}
 
 }

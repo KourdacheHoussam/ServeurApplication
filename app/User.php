@@ -9,7 +9,6 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 /**
  * A Model Class Of User: The ORM Schema Database associated to this Model is:
  * create_users_table.php
- *
  */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
@@ -21,21 +20,19 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var string
 	 */
 	protected $table = 'users';
-
 	/**
 	 * The attributes that are mass assignable.
 	 *
 	 * @var array
 	 */
 	protected $fillable = ['name', 'email', 'password'];
-
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
-   
+
 	/**
 	 * Get the hobbies of the given user
 	 * A user has a Hobby, and a Hobby can belong to many users
@@ -43,9 +40,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	public function hobbies(){
 		//A user has a Hobby, and a Hobby can belong to many users
-		return $this->blongToMany('Models\Hobby');
+		return $this->belongsToMany('Models\Hobby')->withTimestamps();
 	}
-
 	/**
 	 * A User has Only One Addresse
 	 * @return Addresse

@@ -71,7 +71,7 @@ class CreatePartiesTable extends Migration {
 	 * @return void
 	 */
 	public function down(){
-		Schema::drop('parties');
+		Schema::dropIfExists('parties');
 	}
 
 }

@@ -17,7 +17,8 @@ class Hobby extends Model {
 	 * @return Users
 	 */
 	public function users(){
-		return $this->belongToMany('Models\User'); 
+		//A Hobby belong to a user , and a User can have  many hobbies		
+		return $this->belongsToMany('Models\User'); 
 	}
 
 }

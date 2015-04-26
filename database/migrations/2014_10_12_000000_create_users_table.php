@@ -12,7 +12,7 @@ class CreateUsersTable extends Migration {
 	 */
 	public function up(){
 		//Create table Users and his different attributes
-		Schema::create('Users', function(Blueprint $table){
+		Schema::create('users', function(Blueprint $table){
 			//default :une cle primaire			
 			$table->increments('id');
 			//user name
@@ -39,11 +39,11 @@ class CreateUsersTable extends Migration {
 			$table->integer('user_nb_parties_organized');
 			//the number of parties to which the user has participated
 			$table->integer('user_nb_parties_participated');
-			//The friends List of the User
+			// **TEMPORATY** The friends List of the User
 			$table->string('user_list_friends');
-			//The list of events organized by the User
+			// **TEMPORATY** The list of events organized by the User
 			$table->string('user_parties_organized');
-			//The list of parties to which the User has participated
+			// **TEMPORATY** The list of parties to which the User has participated
 			$table->string('user_parties_participated');
 			$table->rememberToken();
 			// pour creer un champ memorisant la date de creation 
@@ -58,7 +58,7 @@ class CreateUsersTable extends Migration {
 	 * @return void
 	 */
 	public function down(){
-		Schema::drop('Users');
+		Schema::drop('users');
 	}
 
 }

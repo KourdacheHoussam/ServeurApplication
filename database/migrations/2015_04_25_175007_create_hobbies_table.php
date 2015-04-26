@@ -20,6 +20,8 @@ class CreateHobbiesTable extends Migration {
 		Schema::create('hobbies', function(Blueprint $table){			
 			//creation d'une cle primaire
 			$table->increments('id');
+			//When User delete his account, all his Hobbies will be deleted
+			//$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 			//the name of the hobby
 			$table->string('hobby_name', 30);
 			//the hobby description
@@ -28,11 +30,7 @@ class CreateHobbiesTable extends Migration {
 			// et de suppression
 			$table->timestamps();
 
-			//When User delete his account, all his Hobbies will be deleted
-			$table->foreign('user_id')
-				  ->references('id')
-				  ->on('users')
-				  ->onDelete('cascade');
+			
 		});
 	}	
 
@@ -42,7 +40,7 @@ class CreateHobbiesTable extends Migration {
 	 * @return void
 	 */
 	public function down(){
-			Schema::drop('hobbies');
+			Schema::dropIfExists('hobbies');
 	}
 
 }
