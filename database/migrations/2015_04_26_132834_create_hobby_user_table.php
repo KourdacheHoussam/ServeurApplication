@@ -25,7 +25,7 @@ class CreateHobbyUserTable extends Migration {
 		 */
 
 		Schema::create('hobby_user', function(Blueprint $table){
-
+			$table->increments('id');
 			//The Hobby ID attributes in table "hobby_user"
 			$table->integer('hobby_id')->unsigned()->index();
 			//The "hobby_id" his reference is the "id" of the hobby in table "hobbies"
